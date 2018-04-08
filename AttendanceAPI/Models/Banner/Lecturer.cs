@@ -17,3 +17,4 @@ namespace AttendanceAPI.Models
 
         public virtual ICollection<Delivery> LecturerDelivery { get; set; }
     }
+}

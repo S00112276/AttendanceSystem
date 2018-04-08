@@ -1,0 +1,8 @@
+﻿enable-migrations -ContextTypeName AttendanceAPI.Models.Banner.AttendanceDB -MigrationsDirectory Migrations\AttendanceMigrations
+enable-migrations -ContextTypeName AttendanceAPI.Models.ApplicationDbContext -MigrationsDirectory Migrations\ApplicationUserMigrations
+
+add-migration –ConfigurationTypeName AttendanceAPI.Migrations.ApplicationUserMigrations.Configuration "Initial Application Migration"
+add-migration –ConfigurationTypeName AttendanceAPI.Migrations.AttendanceMigrations.Configuration "Initial Attendance Migration"
+
+update-database –ConfigurationTypeName AttendanceAPI.Migrations.ApplicationUserMigrations.Configuration 
+update-database –ConfigurationTypeName AttendanceAPI.Migrations.AttendanceMigrations.Configuration
