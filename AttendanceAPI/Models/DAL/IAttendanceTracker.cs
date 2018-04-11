@@ -1,17 +1,14 @@
 ﻿using AttendanceAPI.Models;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using System.Web;
 
 namespace AttendanceAPI.DAL
 {
     public interface IAttendanceTracker
     {
         // Enrollment
-        Enrollment Enroll(Enrollment e);
-        Enrollment Disenroll(int id);
+        Task<Enrollment> Disenroll(int id);
+        Task<Enrollment> Enroll(Enrollment e);
 
         // Students
         Task<IList<Student>> GetStudents();
