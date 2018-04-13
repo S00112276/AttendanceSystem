@@ -30,12 +30,20 @@ namespace AttendanceAPI.Controllers
         {
             context = ctx;
         }
-        
+
+        //[HttpGet]
+        //[Route("Students")]
+        ////public async Task<IList<Student>> GetStudents()
+        //public IQueryable<Student> GetStudents()
+        //{
+        //    //return await (context as AttendanceTrackerRepo).GetStudents();
+        //    return (context as AttendanceTrackerRepo).GetStudents();
+        //}
         [HttpGet]
         [Route("Students")]
-        public async Task<IList<Student>> GetStudents()
+        public IQueryable<Student> GetAllStudents()
         {
-            return await (context as AttendanceTrackerRepo).GetStudents();
+            return context.GetAllStudents();
         }
 
         [HttpGet]

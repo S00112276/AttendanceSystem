@@ -7,6 +7,7 @@ namespace AttendanceAPI.Models
     public class Enrollment
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int id { get; set; }
         [ForeignKey("StudentEnrolled")]
         public int StudentId { get; set; }

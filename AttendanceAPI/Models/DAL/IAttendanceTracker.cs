@@ -9,9 +9,10 @@ namespace AttendanceAPI.DAL
         // Enrollment
         Task<Enrollment> Disenroll(int id);
         Task<Enrollment> Enroll(Enrollment e);
+        //Task<List<Enrollment>> GetStudentEnrollments(int id);
 
         // Students
-        Task<IList<Student>> GetStudents();
+        //Task<IList<Student>> GetStudents();
         Task<Student> AddStudent(Student s);
         Task<Student> UpdateStudent(Student s);
         Task<Student> DeleteStudent(int id);

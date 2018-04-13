@@ -12,6 +12,20 @@ namespace AttendanceAPI.DAL
     {
         private AttendanceDB context;
 
+        //public async Task<IList<Enrollment>> GetStudentEnrollments(int id)
+        //{
+        //Enrollment e = context.Enrollments.Find(id);
+        //}
+
+        //public async Task<IList<Student>> GetStudents()
+        //{
+        //    return await context.Students.ToListAsync();
+        //}
+        public IQueryable<Student> GetAllStudents()
+        {
+            return context.Students;
+        }
+
         public AttendanceTrackerRepo(AttendanceDB context)
         {
             this.context = context;
@@ -204,11 +218,6 @@ namespace AttendanceAPI.DAL
                 return s;
             }
             return null;
-        }
-        
-        public async Task<IList<Student>> GetStudents()
-        {
-            return await context.Students.ToListAsync();
         }
 
         public async Task<Attendance> UpdateAttendance(Attendance a)
