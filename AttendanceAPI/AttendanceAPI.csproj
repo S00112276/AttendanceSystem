@@ -272,6 +272,7 @@
     <Compile Include="Models\Banner\AttendanceDB.cs" />
     <Compile Include="Models\Banner\Delivery.cs" />
     <Compile Include="Models\Banner\Enrollment.cs" />
+    <Compile Include="Models\DTO\LecturerDTO.cs" />
     <Compile Include="Models\DTO\ModuleDTO.cs" />
     <Compile Include="Models\DTO\StudentDTO.cs" />
     <Compile Include="Models\IdentityModels.cs" />

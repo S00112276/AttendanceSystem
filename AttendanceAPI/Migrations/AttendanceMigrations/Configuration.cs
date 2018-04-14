@@ -56,8 +56,23 @@ namespace AttendanceAPI.Migrations.AttendanceMigrations
                     new Models.Module { ModuleName = "Database", Description = "Vital information" }
                 });
 
-            // Enrollments
+            // Lecturers
+            context.Lecturers.AddOrUpdate(l => l.id,
+                new Lecturer[]
+                {
+                    new Lecturer { FirstName = "Paul", SecondName = "Powell" },
+                    new Lecturer { FirstName = "Shane", SecondName = "Banks" },
+                    new Lecturer { FirstName = "Vivion", SecondName = "Kinsella" },
+                    new Lecturer { FirstName = "Keith", SecondName = "McManus" },
+                    new Lecturer { FirstName = "Padraig", SecondName = "Harte" }
+                });
 
+            // Enrollments
+            context.Enrollments.AddOrUpdate(e => e.id,
+                new Enrollment[]
+                {
+
+                });
         }
     } 
 }

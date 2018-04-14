@@ -15,6 +15,10 @@ namespace AttendanceAPI.App_Start
             // Mapping Modules
             CreateMap<Module, ModuleDTO>();
             CreateMap<ModuleDTO, Module>();
+
+            // Mapping Lecturers
+            CreateMap<Lecturer, LecturerDTO>();
+            CreateMap<LecturerDTO, Lecturer>();
         }
     }
 }
