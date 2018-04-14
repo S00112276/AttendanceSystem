@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using AttendanceAPI.App_Start;
+using AutoMapper;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
@@ -13,6 +11,9 @@ namespace AttendanceAPI
     {
         protected void Application_Start()
         {
+            // Initialise Mapper
+            Mapper.Initialize(c => c.AddProfile<MappingProfile>());
+
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);

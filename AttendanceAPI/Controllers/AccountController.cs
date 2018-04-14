@@ -16,6 +16,7 @@ using Microsoft.Owin.Security.OAuth;
 using AttendanceAPI.Models;
 using AttendanceAPI.Providers;
 using AttendanceAPI.Results;
+using AutoMapper;
 
 namespace AttendanceAPI.Controllers
 {

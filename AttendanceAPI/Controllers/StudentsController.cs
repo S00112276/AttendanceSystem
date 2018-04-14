@@ -1,13 +1,9 @@
-﻿using AttendanceAPI.DAL;
-using AttendanceAPI.Models;
+﻿using AttendanceAPI.Models;
 using AttendanceAPI.Models.Banner;
 using AttendanceAPI.Models.DTO;
+using AutoMapper;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Threading.Tasks;
 using System.Web.Http;
 
 namespace AttendanceAPI.Controllers
@@ -16,49 +12,128 @@ namespace AttendanceAPI.Controllers
     //[RoutePrefix("api/attendance")]
     public class StudentsController : ApiController
     {
-        private AttendanceDB db = new AttendanceDB();
-
-        private AttendanceTrackerRepo context;
+        private AttendanceDB _attendanceDb;
 
         public StudentsController()
         {
-            context = new AttendanceTrackerRepo(new AttendanceDB());
+            _attendanceDb = new AttendanceDB();
         }
 
-        // For Injection
-        public StudentsController(AttendanceTrackerRepo ctx)
-        {
-            context = ctx;
-        }
-
-        //[HttpGet]
-        //[Route("Students")]
-        ////public async Task<IList<Student>> GetStudents()
-        //public IQueryable<Student> GetStudents()
-        //{
-        //    //return await (context as AttendanceTrackerRepo).GetStudents();
-        //    return (context as AttendanceTrackerRepo).GetStudents();
-        //}
+        // GET /Students
         [HttpGet]
         [Route("Students")]
-        public IQueryable<Student> GetAllStudents()
+        public IHttpActionResult GetAllStudents()
         {
-            return context.GetAllStudents();
+            var studentQuery = _attendanceDb.Students;
+
+            var studentDto = studentQuery
+                .ToList()
+                .Select(Mapper.Map<Student, StudentDTO>);
+
+            return Ok(studentDto);
         }
 
+        // GET /Student/id
         [HttpGet]
-        [Route("Student/{id:int}")]
-        public async Task<IList<Student>> GetStudent(int id)
+        [Route("Student/{id}")]
+        public IHttpActionResult GetStudentById(int id)
         {
-            Student student = (context as AttendanceTrackerRepo).GetStudent(id);
+            var student = _attendanceDb.Students.SingleOrDefault(s => s.id == id);
 
-            if(student != null)
+            if(student == null)
             {
-                StudentDTO studentDTO;
-                //var enrollments = (context as AttendanceTrackerRepo).
+                return NotFound();
             }
 
-            return null;
+            return Ok(Mapper.Map<Student, StudentDTO>(student));
+        }
+
+        // Get /Student/name
+        [HttpGet]
+        [Route("Students/{fName}")] // Not Working?
+        public IHttpActionResult GetStudentByFName(string fName)
+        {
+            var studentQuery = _attendanceDb.Students;
+
+            var studentDto = studentQuery
+                .ToList()
+                .Where(s => s.FirstName == fName)
+                .Select(Mapper.Map<Student, StudentDTO>);
+
+            return Ok(studentDto);
+        }
+
+        // POST /Student
+        [HttpPost]
+        [Route("Student")]
+        public IHttpActionResult CreateStudent(StudentDTO studentDto)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest();
+
+            var student = Mapper.Map<StudentDTO, Student>(studentDto);
+            _attendanceDb.Students.Add(student);
+            _attendanceDb.SaveChanges();
+
+            studentDto.id = student.id;
+
+            return Created(new Uri(Request.RequestUri + "/" + student.id), studentDto);
+        }
+
+        // PUT /Student
+        [HttpPut]
+        [Route("Student/{id}")]
+        public IHttpActionResult UpdateStudent(int id, StudentDTO studentDto)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest();
+
+            var studentInDb = _attendanceDb.Students.SingleOrDefault(s => s.id == id);
+
+            if (studentInDb == null)
+                return NotFound();
+
+            Mapper.Map(studentDto, studentInDb);
+
+            _attendanceDb.SaveChanges();
+
+            return Ok();
+        }
+
+        // PATCH /Student
+        [HttpPatch]
+        [Route("Student/{id}")]
+        public IHttpActionResult UpdatePartStudent(int id, StudentDTO studentDto)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest();
+
+            var studentInDb = _attendanceDb.Students.SingleOrDefault(s => s.id == id);
+
+            if (studentInDb == null)
+                return NotFound();
+
+            Mapper.Map(studentDto, studentInDb);
+
+            _attendanceDb.SaveChanges();
+
+            return Ok();
+        }
+
+        // DELETE /Student
+        [HttpDelete]
+        [Route("Student/{id}")]
+        public IHttpActionResult DeleteStudent(int id)
+        {
+            var studentInDb = _attendanceDb.Students.SingleOrDefault(s => s.id == id);
+
+            if (studentInDb == null)
+                return NotFound();
+
+            _attendanceDb.Students.Remove(studentInDb);
+            _attendanceDb.SaveChanges();
+
+            return Ok();
         }
     }
 }

@@ -27,7 +27,7 @@ namespace AttendanceAPI.Services
             if(result != null)
             {
                 student = result;
-                return StudentDTO.Builder.Build(student);
+                //return StudentDTO.Builder.Build(student);
             }
 
             return dto;
