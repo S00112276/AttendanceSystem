@@ -189,3 +189,13 @@ C:\Users\Sophia Price\Documents\CollegeWork\FinalRadAssignment\AttendanceSystem\
 C:\Users\Sophia Price\Documents\CollegeWork\FinalRadAssignment\AttendanceSystem\AttendanceAPI\obj\Debug\AttendanceAPI.Migrations.AttendanceMigrations.Studentscsv.resources
 C:\Users\Sophia Price\Documents\CollegeWork\FinalRadAssignment\AttendanceSystem\AttendanceAPI\bin\AutoMapper.dll
 C:\Users\Sophia Price\Documents\CollegeWork\FinalRadAssignment\AttendanceSystem\AttendanceAPI\bin\AutoMapper.xml
+C:\Users\Daniel\Desktop\AttendanceSystem\AttendanceAPI\bin\AutoMapper.dll
+C:\Users\Daniel\Desktop\AttendanceSystem\AttendanceAPI\bin\CsvHelper.dll
+C:\Users\Daniel\Desktop\AttendanceSystem\AttendanceAPI\bin\AutoMapper.xml
+C:\Users\Daniel\Desktop\AttendanceSystem\AttendanceAPI\bin\CsvHelper.xml
+C:\Users\Daniel\Desktop\AttendanceSystem\AttendanceAPI\obj\Debug\AttendanceAPI.Migrations.AttendanceMigrations.Studentscsv.resources
+C:\Users\Daniel\Desktop\AttendanceSystem\AttendanceAPI\bin\Microsoft.Owin.Cors.dll
+C:\Users\Daniel\Desktop\AttendanceSystem\AttendanceAPI\bin\System.Web.Cors.dll
+C:\Users\Daniel\Desktop\AttendanceSystem\AttendanceAPI\bin\System.Web.Http.Cors.dll
+C:\Users\Daniel\Desktop\AttendanceSystem\AttendanceAPI\bin\Microsoft.Owin.Cors.xml
+C:\Users\Daniel\Desktop\AttendanceSystem\AttendanceAPI\bin\System.Web.Http.Cors.xml
