@@ -5,3 +5,7 @@ If localhost refuses to connect:
 4. Delete applicationhost.config
 5. Re-Open Visual Studio
 6. Run the program again (applicationhost.config should regenerate itself)
+
+Angular App
+1. Npm Install
+2. Ng Serve
