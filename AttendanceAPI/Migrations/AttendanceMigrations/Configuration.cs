@@ -48,7 +48,13 @@ namespace AttendanceAPI.Migrations.AttendanceMigrations
             context.SaveChanges();
 
             // Modules
-
+            context.Modules.AddOrUpdate(m => m.id,
+                new Models.Module[]
+                {
+                    new Models.Module { ModuleName = "Rad302", Description = "bla bla bla" },
+                    new Models.Module { ModuleName = "PRJ300", Description = "important learning outcome" },
+                    new Models.Module { ModuleName = "Database", Description = "Vital information" }
+                });
 
             // Enrollments
 

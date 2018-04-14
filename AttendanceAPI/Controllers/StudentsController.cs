@@ -100,26 +100,6 @@ namespace AttendanceAPI.Controllers
             return Ok();
         }
 
-        // PATCH /Student
-        [HttpPatch]
-        [Route("Student/{id}")]
-        public IHttpActionResult UpdatePartStudent(int id, StudentDTO studentDto)
-        {
-            if (!ModelState.IsValid)
-                return BadRequest();
-
-            var studentInDb = _attendanceDb.Students.SingleOrDefault(s => s.id == id);
-
-            if (studentInDb == null)
-                return NotFound();
-
-            Mapper.Map(studentDto, studentInDb);
-
-            _attendanceDb.SaveChanges();
-
-            return Ok();
-        }
-
         // DELETE /Student
         [HttpDelete]
         [Route("Student/{id}")]
