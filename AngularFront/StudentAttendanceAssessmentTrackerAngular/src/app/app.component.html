@@ -1,0 +1,12 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <span [routerLink]="['/home']">Moodle Material</span>
+
+        <span class="example-spacer"></span>
+
+        <button mat-button [routerLink]="['/assessments']">Assessments</button>
+        <button mat-button [routerLink]="['/attendance']">Attendance</button>
+        <button mat-button [routerLink]="['/login']">Login</button>
+    </mat-toolbar-row>
+</mat-toolbar>
+<router-outlet></router-outlet>

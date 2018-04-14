@@ -1,0 +1,13 @@
+<mat-card>
+  <h1>Attendance</h1>
+
+  <h3>Select a module: {{selectedModule}}</h3>
+  <div class="students">
+    <mat-list role="list">
+      <mat-list-item *ngFor="let module of modules" role="listitem"(click)="createRecord(module)">
+        {{module.title}}
+      </mat-list-item>
+    </mat-list>
+  </div>
+  <button mat-raised-button [routerLink]="['/attendance-record']" >Submit</button>
+</mat-card>

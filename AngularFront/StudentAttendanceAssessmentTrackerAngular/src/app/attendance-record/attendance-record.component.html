@@ -1,0 +1,16 @@
+<mat-card>
+<h1>{{selectedModule}} Attendance</h1>
+
+
+<div class="students">
+  <mat-selection-list #attendees>
+    <mat-list-option *ngFor="let student of students">
+      {{student.FirstName}} {{student.SecondName}}
+    </mat-list-option>
+  </mat-selection-list>
+
+  <p class="attendance">
+    Attendance: {{attendees.selectedOptions.selected.length / students.length | percent}}
+  </p>
+</div>
+</mat-card>

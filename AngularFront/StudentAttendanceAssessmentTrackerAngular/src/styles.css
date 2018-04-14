@@ -1,0 +1,21 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/pink-bluegrey.css";
+
+mat-card {
+    text-align: center;
+    overflow: hidden;
+    min-height: 820px;
+}
+
+.form {
+    padding-top: 10%;
+}
+
+.registered {
+    color: #E91E63;
+    text-decoration: none;
+}
+
+mat-form-field {
+    min-width: 250px;
+}

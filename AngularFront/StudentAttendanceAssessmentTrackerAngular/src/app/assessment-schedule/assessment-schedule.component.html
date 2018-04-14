@@ -1,0 +1,29 @@
+<mat-card>
+    <h1>Assessments</h1>
+
+    <div class="example-container mat-elevation-z8">
+        <mat-table #table [dataSource]="assessments">
+
+            <!-- Desscription Column -->
+            <ng-container matColumnDef="description">
+                <mat-header-cell *matHeaderCellDef> Title </mat-header-cell>
+                <mat-cell *matCellDef="let assessment"> {{assessment.description}} </mat-cell>
+            </ng-container>
+
+            <!-- Module Name Column -->
+            <ng-container matColumnDef="module">
+                <mat-header-cell *matHeaderCellDef> Module </mat-header-cell>
+                <mat-cell *matCellDef="let assessment"> {{assessment.moduleName}} </mat-cell>
+            </ng-container>
+
+            <!-- Due Date Column -->
+            <ng-container matColumnDef="dueDate">
+                <mat-header-cell *matHeaderCellDef> Date </mat-header-cell>
+                <mat-cell *matCellDef="let assessment"> {{assessment.dueDate}} </mat-cell>
+            </ng-container>
+
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+    </div>
+</mat-card>
